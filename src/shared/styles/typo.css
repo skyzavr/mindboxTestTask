@@ -1,0 +1,18 @@
+:root {
+  /* tablet+ */
+  --h1-bold-tabl: bold 80px 'Inter', sans-serif;
+  --body-tabl: 32px 'Inter', sans-serif;
+
+  /* mobile+ */
+  --h1-bold-mob: bold 60px 'Inter', sans-serif;
+  --body-mob: 20px 'Inter', sans-serif;
+
+  /* common */
+  --h2-bold: bold 44px 'Inter', sans-serif;
+  --plain-black: 800 20px 'Inter', sans-serif;
+  --plain-medium: medium 20px 'Inter', sans-serif;
+  --plain-light: light 20px 'Inter', sans-serif;
+  --text-regular: 400 16px 'Inter', sans-serif;
+  --text-italic: italic 16px 'Inter', sans-serif;
+  --text-light: light 16px 'Inter', sans-serif;
+}
