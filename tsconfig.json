@@ -8,6 +8,8 @@
     "baseUrl": "",
     "paths": {
       "@app/*": ["src/app/*"],
+      "@pages/*": ["src/pages/*"],
+      "@type/*": ["src/types/*"],
       "@store/*": ["src/app/store/*"],
       "@widgets/*": ["src/widgets/*"],
       "@features/*": ["src/features/*"],
