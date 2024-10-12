@@ -1,28 +1,30 @@
 import { Button } from '@mui/material';
+import classNames from 'classnames';
 
-import { styles } from './ButtonStyle';
+import { ButtonStyle, classes } from '@type/app';
+
+import { useStyles } from './ButtonStyle';
 
 type buttonProps = {
   onClick: () => void;
   children: string;
   isDisabled?: boolean;
-  variant?: 'text' | 'contained';
+  variant?: ButtonStyle;
 };
 
 export const CustomButton = (props: buttonProps) => {
-  const {
-    onClick,
-    children,
-    variant = 'contained',
-    isDisabled = false,
-  } = props;
+  const { onClick, children, variant = 'outlined', isDisabled = false } = props;
+
+  const { classes }: classes = useStyles();
+  const styles = classNames(classes.button, classes[variant]);
 
   return (
     <Button
       onClick={onClick}
       variant={variant}
-      sx={styles[variant]}
+      className={styles}
       disabled={isDisabled}
+      style={{ textTransform: 'none' }}
     >
       {children}
     </Button>
