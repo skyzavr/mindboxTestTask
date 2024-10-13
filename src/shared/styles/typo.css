@@ -2,15 +2,17 @@
   /* tablet+ */
   --h1-bold-tabl: bold 80px 'Inter', sans-serif;
   --body-tabl: 32px 'Inter', sans-serif;
-
+  --plain-medium-tabl: 500 20px 'Inter', sans-serif;
+  --title-tabl: 500 20px 'Inter', sans-serif;
   /* mobile+ */
   --h1-bold-mob: bold 60px 'Inter', sans-serif;
   --body-mob: 20px 'Inter', sans-serif;
-
+  --plain-medium-mob: 500 16px 'Inter', sans-serif;
+  --title-mob: 500 18px 'Inter', sans-serif;
   /* common */
   --h2-bold: bold 44px 'Inter', sans-serif;
   --plain-black: 800 20px 'Inter', sans-serif;
-  --plain-medium: medium 20px 'Inter', sans-serif;
+  --plain-med: 600 20px 'Inter', sans-serif;
   --plain-light: light 20px 'Inter', sans-serif;
   --text-regular: 400 16px 'Inter', sans-serif;
   --text-italic: italic 16px 'Inter', sans-serif;
