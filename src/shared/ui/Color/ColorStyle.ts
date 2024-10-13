@@ -13,7 +13,8 @@ export const useStyles = makeStyles()(() => {
     icon: {
       borderRadius: '50%',
       display: 'flex',
-      // margin: '0 5px',
+      border: '1px solid transparent',
+      transition: 'var(--all-03-eio)',
       '@media (min-width:320px)': {
         width: '28px',
         height: '28px',
@@ -21,6 +22,17 @@ export const useStyles = makeStyles()(() => {
       '@media (min-width:1280px)': {
         width: '32px',
         height: '32px',
+      },
+      ':hover': {
+        cursor: 'pointer',
+        border: '1px solid var(--active)',
+        transition: 'var(--all-03-eio)',
+      },
+    },
+    active: {
+      border: '1px solid var(--dark)',
+      ':hover': {
+        border: '1px solid var(--dark)',
       },
     },
     ...colors,

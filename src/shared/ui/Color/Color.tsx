@@ -8,18 +8,21 @@ import { useStyles } from './ColorStyle';
 type colorProps = {
   color: Colors;
   isActive: boolean;
+  click: (value: Colors) => void;
 };
 
-export const Color = ({ color, isActive }: colorProps) => {
+export const Color = ({ color, isActive, click }: colorProps) => {
   const { classes } = useStyles();
-  const cs = classNames(classes.icon, classes[color]);
+  const cs = classNames(
+    classes.icon,
+    classes[color],
+    isActive ? classes.active : ''
+  );
+  const setColor = () => click(color);
   const img =
     color !== 'color' ? '' : <img src={avatar} alt="Colorful circle" />;
   return (
-    <Icon
-      className={cs}
-      style={{ border: `${isActive ? '1px' : '0px'} solid var(--dark)` }}
-    >
+    <Icon onClick={setColor} className={cs}>
       {img}
     </Icon>
   );
