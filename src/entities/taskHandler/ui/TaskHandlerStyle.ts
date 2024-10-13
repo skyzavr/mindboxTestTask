@@ -39,8 +39,8 @@ export const useStyles = makeStyles()(() => {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       '>button': {
-        maxWidth: '140px!important',
-        width: '140px!important',
+        maxWidth: '170px!important',
+        width: '100%!important',
         minWidth: '140px!important',
       },
     },
