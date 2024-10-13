@@ -8,13 +8,13 @@ type initialState = {
 };
 type SetIsDone = { payload: { id: string; isDone: boolean } };
 
-const initialState: initialState = {
-  entities: [...cards],
-  activeCards: cards.filter((card) => !card.isDone).length,
-};
-
 const getActiveCardsNumber = (state: CardProps[]) => {
   return [...state].filter((card) => !card.isDone).length;
+};
+
+const initialState: initialState = {
+  entities: [...cards],
+  activeCards: getActiveCardsNumber([...cards]),
 };
 
 export const cardsSlice = createSlice({
@@ -34,7 +34,17 @@ export const cardsSlice = createSlice({
       state.activeCards = getActiveCardsNumber(updatedCards);
       state.entities = [...updatedCards];
     },
+    addTask: (state, action: { payload: CardProps }) => {
+      state.entities = [action.payload, ...state.entities];
+    },
+    editTask: (state, action: { payload: { id: string; card: CardProps } }) => {
+      const { id, card } = action.payload;
+      state.entities = [...state.entities].map((el) =>
+        el.id === id ? { ...card } : el
+      );
+    },
   },
 });
-export const { setIsDoneTask, deleteTask } = cardsSlice.actions;
+export const { setIsDoneTask, deleteTask, addTask, editTask } =
+  cardsSlice.actions;
 export const fetchCardsReducer = cardsSlice.reducer;
