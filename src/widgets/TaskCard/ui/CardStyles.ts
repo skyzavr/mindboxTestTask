@@ -21,11 +21,6 @@ export const useStyles = makeStyles()(() => {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
-    handleWrapper: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-    },
     description: {
       minHeight: '30px',
       marginTop: '10px',

@@ -13,9 +13,9 @@ import { useStyles } from './CardStyles';
 
 export const Card = ({ card }: { card: CardProps }) => {
   const [showCard, setShowCard] = useState(false);
+  const [menu, setMenu] = useState(false);
   const { classes } = useStyles();
   const { title, description, isDone, color, id } = card;
-
   const titleLen = 30;
   const descLen = 150;
 
@@ -27,16 +27,20 @@ export const Card = ({ card }: { card: CardProps }) => {
   const titleNote = getShortText(title, titleLen);
   const descNote = getShortText(setDescription(description), descLen);
 
-  const onShowCardHandler = () => setShowCard((prev) => !prev);
-
+  const onShowCardHandler = () => {
+    if (menu || (!showCard && menu)) return;
+    setShowCard((prev) => !prev);
+  };
+  const onSetMenu = (data: boolean) => {
+    setMenu(data);
+    if (data) setShowCard(false);
+  };
   return (
     <>
       <Box className={wrapperClasses} onClick={onShowCardHandler}>
         <Box className={classes.container}>
           <Text variant="title">{titleNote}</Text>
-          <Box className={classes.handleWrapper}>
-            <CardMenu id={id} />
-          </Box>
+          <CardMenu id={id} setMenu={setMenu} onSetMenu={onSetMenu} />
         </Box>
         <Box className={`${classes.description}`}>
           <Text variant={description ? 'desc' : 'placeholder'}>{descNote}</Text>
