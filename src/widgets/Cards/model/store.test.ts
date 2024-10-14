@@ -40,7 +40,7 @@ test('should edit task', () => {
   const isDataCorrect = (list: CardProps, newList: CardProps) => {
     let isTheSame = true;
     const values = Object.values(newList);
-    Object.entries(list).map(([key, value], ind) => {
+    Object.entries(list).map(([, value], ind) => {
       if (value !== values[ind]) {
         isTheSame = false;
       }
