@@ -36,12 +36,14 @@ export const cardsSlice = createSlice({
     },
     addTask: (state, action: { payload: CardProps }) => {
       state.entities = [action.payload, ...state.entities];
+      state.activeCards = getActiveCardsNumber(state.entities);
     },
     editTask: (state, action: { payload: { id: string; card: CardProps } }) => {
       const { id, card } = action.payload;
       state.entities = [...state.entities].map((el) =>
         el.id === id ? { ...card } : el
       );
+      state.activeCards = getActiveCardsNumber(state.entities);
     },
   },
 });
